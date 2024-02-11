@@ -424,24 +424,17 @@ function sortByAsc(/* arr */) {
  */
 function shuffleChar(str, iterations) {
   let res = str;
-  let strEven = '';
-  let strOdd = '';
-  function shuffle() {
-    for (let i = 0; i < res.length; i += 1) {
-      if (i % 2 === 0) {
-        strEven += res[i];
+  for (let i = 1; i <= iterations; i += 1) {
+    let strEven = '';
+    let strOdd = '';
+    for (let j = 0; j < res.length; j += 1) {
+      if (j % 2 === 0) {
+        strEven += res[j];
       } else {
-        strOdd += res[i];
+        strOdd += res[j];
       }
     }
     res = strEven + strOdd;
-    return res;
-  }
-
-  for (let i = 0; i < iterations; i += 1) {
-    shuffle(res);
-    strEven = '';
-    strOdd = '';
   }
   return res;
 }
