@@ -424,6 +424,7 @@ function sortByAsc(/* arr */) {
  */
 function shuffleChar(str, iterations) {
   let res = str;
+  const resAll = [];
   for (let i = 1; i <= iterations; i += 1) {
     let strEven = '';
     let strOdd = '';
@@ -435,6 +436,10 @@ function shuffleChar(str, iterations) {
       }
     }
     res = strEven + strOdd;
+    resAll[i] = res;
+    if (res === str) {
+      return resAll[iterations % i];
+    }
   }
   return res;
 }
